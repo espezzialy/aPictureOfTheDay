@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/splashScreen">
+
+    <fragment
+        android:id="@+id/splashScreen"
+        android:name="com.espezzialy.apod.feature.splash.SplashScreen"
+        android:label=""
+        tools:layout="@layout/splash_fragment" >
+        <action
+            android:id="@+id/action_splashScreen_to_apodMain"
+            app:destination="@id/apodMain"
+            app:popUpTo="@id/splashScreen"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/apodMain"
+        android:name="com.espezzialy.apod.feature.apod.ApodMain"
+        android:label="fragment_apod_main"
+        tools:layout="@layout/apod_fragment" >
+        <action
+            android:id="@+id/action_apodMain_to_apodDetails"
+            app:destination="@id/apodDetails"
+            app:enterAnim="@anim/from_up" />
+    </fragment>
+    <fragment
+        android:id="@+id/apodDetails"
+        android:name="com.espezzialy.apod.feature.details.ApodDetails"
+        android:label="ApodDetails" >
+        <action
+            android:id="@+id/action_apodDetails_to_apodMain"
+            app:destination="@id/apodMain"
+            app:enterAnim="@anim/from_down" />
+    </fragment>
+</navigation>
